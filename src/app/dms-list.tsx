@@ -239,7 +239,7 @@ export default function DmsList() {
         {isLargeScreen ? (
           <View style={styles.tableWrapper}>
 
-            {/* ===== TABLE HEADER ===== */}
+            {/*TABLE HEADER >>>>> */}
             <View style={styles.tableHeader}>
               <Pressable style={styles.cellSr} onPress={() => handleSort("id")}>
                 <Text style={styles.headerCellText}>
@@ -299,7 +299,7 @@ export default function DmsList() {
               </View>
             </View>
 
-            {/* TABLE ROWS>>>> */}
+            {/* TABLE ROWS>>>>>> */}
             {pageData.map((item, index) => (
               <View
                 key={item.id}
@@ -339,7 +339,7 @@ export default function DmsList() {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
             <View>
 
-              {/* TABLE HEADER (mobile - scrollable)>>>>>> */}
+              {/* TABLE HEADER (mobile - scrollable) Tableeee ka responseive ka msla>>>>>> */}
               <View style={styles.tableHeader}>
                 <Pressable style={styles.cellSr} onPress={() => handleSort("id")}>
                   <Text style={styles.headerCellText}>
