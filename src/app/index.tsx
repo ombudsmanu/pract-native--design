@@ -13,11 +13,12 @@ import { useRef } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { BlurView } from "expo-blur";
+import { useRouter } from "expo-router";
 
 export default function HomeScreen() {
 const { width } = useWindowDimensions();
   const isLargeScreen = width > 500;
-
+  const router = useRouter();
   const translateY = useRef(new Animated.Value(0)).current;
 
   const panResponder = useRef(
@@ -31,13 +32,9 @@ const { width } = useWindowDimensions();
           translateY.setValue(gesture.dy);
         }
       },
-      onPanResponderRelease: (_, gesture) => {
-        if (gesture.dy < -120) {
-          Alert.alert(
-            'Welcome!',
-            'Navigating to the next screen...',
-            [{ text: 'OK' }]
-          );
+          onPanResponderRelease: (_, gesture) => {
+        if (gesture.dy < -100) {
+          router.replace('/login');
         }
         Animated.spring(translateY, {
           toValue: 0,
@@ -64,7 +61,7 @@ const { width } = useWindowDimensions();
             <BlurView intensity={30} tint="light" style={styles.blurFill} />
             <View style={styles.glassContent}>
               <Image
-                source={require("../../assets/images/logo.png.jpg")}
+                source={require("../../assets/images/logo.png")}
                 style={styles.logo}
                 resizeMode="contain"
               />
